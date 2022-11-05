@@ -36,7 +36,7 @@ namespace Prakt8
                 if (Female.IsChecked.Value == true) pol = "Ж";
                 Rabotnik rab1 = new Rabotnik(Firstname.Text, Lastname.Text, age, pol, Dolznost.Text);
                 Itog.Text = rab1.GetInfo();
-        }
+            }
             catch
             {
                 MessageBox.Show("Введите пропущенные данные");

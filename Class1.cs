@@ -30,7 +30,7 @@ namespace Prakt8
             if (pol == "М") Pol = "Мужской";
             if (pol == "Ж") Pol = "Женский";
             if (Pol != "Мужской" && Pol != "Женский") throw new ArgumentException();
-            if (age > 16 && age < 100) Age = age;
+            if (age > 16) Age = age;
             else throw new ArgumentException();
             Dolzhnost = dolzhnost;
         }
@@ -65,5 +65,23 @@ namespace Prakt8
             clone.Dolzhnost = this.Dolzhnost;
             return clone;
         }
+    }
+    internal class RabotnikDet : Rabotnik,Ihuman,IComparable,ICloneable
+    {
+        public int Childrens { get ; set; }
+        public RabotnikDet(string firstName, string lastName, int age, string pol, string dolzhnost,int childrens)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            //if (pol != "М" || pol != "Ж") throw new ArgumentException();
+            if (pol == "М") Pol = "Мужской";
+            if (pol == "Ж") Pol = "Женский";
+            if (Pol != "Мужской" && Pol != "Женский") throw new ArgumentException();
+            if (age > 16) Age = age;
+            else throw new ArgumentException();
+            Dolzhnost = dolzhnost;
+            Childrens = childrens;
+        }
+
     }
 }
