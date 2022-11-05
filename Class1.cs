@@ -10,7 +10,7 @@ namespace Prakt8
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Age { get; set; }
+        public int Age { get; set; }
         public string Pol { get; set; }
         public string Dolzhnost { get; set; }
 
@@ -18,17 +18,20 @@ namespace Prakt8
         {
             FirstName = "Пусто";
             LastName = "Пусто";
-            Age = "Пусто";
+            Age = 0;
             Pol = "Пусто";
             Dolzhnost = "Пусто";
         }
-        public Rabotnik(string firstName, string lastName, string age, string pol, string dolzhnost)
+        public Rabotnik(string firstName, string lastName, int age, string pol, string dolzhnost)
         {
             FirstName = firstName;
             LastName = lastName;
-            if (pol != "Ж" || pol != "M") throw new ArgumentException();
-            else Pol = pol;
-            Age = age;
+            //if (pol != "М" || pol != "Ж") throw new ArgumentException();
+            if (pol == "М") Pol = "Мужской";
+            if (pol == "Ж") Pol = "Женский";
+            if (Pol != "Мужской" && Pol != "Женский") throw new ArgumentException();
+            if (age > 16 && age < 100) Age = age;
+            else throw new ArgumentException();
             Dolzhnost = dolzhnost;
         }
 

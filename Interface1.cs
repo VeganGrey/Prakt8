@@ -10,7 +10,7 @@ namespace Prakt8
     {
         string FirstName { get; set; }
         string LastName { get; set; }
-        string Age { get; set; }
+        int Age { get; set; }
         string Pol { get; set; }
         string Dolzhnost { get; set; }
         string GetInfo();

@@ -7,6 +7,29 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="Сведения">
+                <MenuItem Header="Получить сводку о работнике 1" Click="Отчёт"></MenuItem>
+                <MenuItem Header="Получить сводку о работнике 2"></MenuItem>
+                <MenuItem Header="Сравнить работников"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Техподдержка" Click="Support"></MenuItem>
+            <MenuItem Header="Справка"></MenuItem>
+            <MenuItem Header="Выход"></MenuItem>
+        </Menu>
+        <Label Content="Работник 1" HorizontalAlignment="Left" Margin="28,34,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Firstname" HorizontalAlignment="Left" Margin="28,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Имя работника"/>
+        <TextBox x:Name="Lastname" HorizontalAlignment="Left" Margin="28,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Фамилия работника"/>
+        <TextBox x:Name="Age" HorizontalAlignment="Left" Margin="28,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="2" ToolTip="Возраст работника"/>
+        <TextBox x:Name="Dolznost" HorizontalAlignment="Left" Margin="28,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Должность работника"/>
+        <TextBox x:Name="Childrens" HorizontalAlignment="Left" Margin="28,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Кол-во детей у работника"/>
+        <TextBox x:Name="Itog" HorizontalAlignment="Left" Margin="250,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="180"/>
+        <Label Content="Пол работника" HorizontalAlignment="Left" Margin="28,269,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Пол" Margin="10,258,615,60">
+            <Grid>
+                <RadioButton x:Name="Male" GroupName="group1" Content="М" HorizontalAlignment="Left" Margin="19,24,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="Female" GroupName="group1" Content="Ж" HorizontalAlignment="Left" Margin="19,53,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
