@@ -5,32 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prakt8"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="499" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Menu VerticalAlignment="Top">
             <MenuItem Header="Сведения">
-                <MenuItem Header="Получить сводку о работнике 1" Click="Отчёт"></MenuItem>
-                <MenuItem Header="Получить сводку о работнике 2"></MenuItem>
+                <MenuItem Header="Получить сводку о работнике" Click="Отчёт"></MenuItem>
+                <MenuItem Header="Клонировать работника"></MenuItem>
                 <MenuItem Header="Сравнить работников"></MenuItem>
             </MenuItem>
             <MenuItem Header="Очистка"></MenuItem>
             <MenuItem Header="Справка"></MenuItem>
             <MenuItem Header="Выход"></MenuItem>
         </Menu>
-        <Label Content="Работник 1" HorizontalAlignment="Left" Margin="28,34,0,0" VerticalAlignment="Top"/>
+        <Label Content="Работник " HorizontalAlignment="Left" Margin="28,34,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Firstname" HorizontalAlignment="Left" Margin="28,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Имя работника"/>
         <TextBox x:Name="Lastname" HorizontalAlignment="Left" Margin="28,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Фамилия работника"/>
         <TextBox x:Name="Age" HorizontalAlignment="Left" Margin="28,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="2" ToolTip="Возраст работника"/>
         <TextBox x:Name="Dolznost" HorizontalAlignment="Left" Margin="28,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Должность работника"/>
         <TextBox x:Name="Childrens" HorizontalAlignment="Left" Margin="28,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Кол-во детей у работника"/>
-        <TextBox x:Name="Itog" HorizontalAlignment="Left" Margin="250,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="180" IsReadOnly="True"/>
+        <TextBox x:Name="Itog" HorizontalAlignment="Left" Margin="206,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="144" IsReadOnly="True"/>
         <Label Content="Пол работника" HorizontalAlignment="Left" Margin="28,269,0,0" VerticalAlignment="Top"/>
-        <GroupBox Header="Пол" Margin="10,258,615,60">
+        <GroupBox Header="Пол" Margin="10,258,0,60" HorizontalAlignment="Left" Width="167">
             <Grid>
                 <RadioButton x:Name="Male" GroupName="group1" Content="М" HorizontalAlignment="Left" Margin="19,24,0,0" VerticalAlignment="Top"/>
                 <RadioButton x:Name="Female" GroupName="group1" Content="Ж" HorizontalAlignment="Left" Margin="19,53,0,0" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
-        <Label Content="Работник 2" HorizontalAlignment="Left" Margin="657,34,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="listBox" Margin="206,69,0,174" HorizontalAlignment="Left" Width="237"/>
+        <Button Content="записать" HorizontalAlignment="Left" Margin="62,389,0,0" VerticalAlignment="Top" Click="Записать"/>
+        <TextBox x:Name="Porad" HorizontalAlignment="Left" Margin="340,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" ToolTip="Номер работника" Height="22"/>
+        <Label Content="Номер работника" HorizontalAlignment="Left" Margin="216,30,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

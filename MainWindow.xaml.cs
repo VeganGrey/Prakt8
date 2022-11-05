@@ -21,6 +21,7 @@ namespace Prakt8
     /// </summary>
     public partial class MainWindow : Window
     {
+        int kol = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -28,39 +29,30 @@ namespace Prakt8
 
         private void Отчёт(object sender, RoutedEventArgs e)
         {
-            if (Childrens.Text == null)
+            int.TryParse(Porad.Text, out int indx);
+            //indx -= 1;
+            RabotnikDet rab1;
+            rab1 = (RabotnikDet)listBox.Items[indx];
+            Itog.Text = rab1.GetInfo();
+        }
+
+        private void Записать(object sender, RoutedEventArgs e)
+        {
+            try
             {
-                try
-                {
-                    Int32.TryParse(Age.Text, out int age);
-                    string pol = "";
-                    if (Male.IsChecked.Value == true) pol = "М";
-                    if (Female.IsChecked.Value == true) pol = "Ж";
-                    Rabotnik rab1 = new Rabotnik(Firstname.Text, Lastname.Text, age, pol, Dolznost.Text);
-                    Itog.Text = rab1.GetInfo();
-                }
-                catch
-                {
-                    MessageBox.Show("Введите пропущенные данные");
-                }
+                Int32.TryParse(Age.Text, out int age);
+                Int32.TryParse(Childrens.Text, out int childrens);
+                string pol = "";
+                if (Male.IsChecked.Value == true) pol = "М";
+                if (Female.IsChecked.Value == true) pol = "Ж";
+                RabotnikDet rab = new RabotnikDet(Firstname.Text, Lastname.Text, age, pol, Dolznost.Text, childrens);
+                kol += 1;
+                listBox.Items.Add(rab+$" Работник{kol}");;
             }
-            else
+            catch
             {
-                try
-                {
-                    Int32.TryParse(Age.Text, out int age);
-                    Int32.TryParse(Childrens.Text, out int childrens);
-                    string pol = "";
-                    if (Male.IsChecked.Value == true) pol = "М";
-                    if (Female.IsChecked.Value == true) pol = "Ж";
-                    RabotnikDet rab1 = new RabotnikDet(Firstname.Text, Lastname.Text, age, pol, Dolznost.Text,childrens);
-                    Itog.Text = rab1.GetInfo();
-                }
-                catch
-                {
-                    MessageBox.Show("Введите пропущенные данные");
-                }
-            }
-}
+                MessageBox.Show("Введите пропущенные данные");
+            }           
+        }
     }
 }

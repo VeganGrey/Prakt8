@@ -64,6 +64,15 @@ namespace Prakt8
     internal class RabotnikDet : Rabotnik,Ihuman,IComparable,ICloneable
     {
         public int Childrens { get ; set; }
+        public RabotnikDet()
+        {
+            FirstName = "Пусто";
+            LastName = "Пусто";
+            Age = 0;
+            Pol = "Пусто";
+            Dolzhnost = "Пусто";
+            Childrens = 0;
+        }
         public RabotnikDet(string firstName, string lastName, int age, string pol, string dolzhnost,int childrens)
         {
             FirstName = firstName;
@@ -88,7 +97,7 @@ namespace Prakt8
         public new object Clone()
         {
             RabotnikDet clone = new RabotnikDet(this.FirstName,this.LastName,this.Age,this.Pol,this.Dolzhnost,this.Childrens);
-            return this;
+            return clone;
         }
     }
 }
