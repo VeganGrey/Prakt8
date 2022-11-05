@@ -28,18 +28,38 @@ namespace Prakt8
 
         private void Отчёт(object sender, RoutedEventArgs e)
         {
-            try
+            if (Childrens.Text == null)
             {
-                Int32.TryParse(Age.Text, out int age);
-                string pol = "";
-                if (Male.IsChecked.Value == true) pol = "М";
-                if (Female.IsChecked.Value == true) pol = "Ж";
-                Rabotnik rab1 = new Rabotnik(Firstname.Text, Lastname.Text, age, pol, Dolznost.Text);
-                Itog.Text = rab1.GetInfo();
+                try
+                {
+                    Int32.TryParse(Age.Text, out int age);
+                    string pol = "";
+                    if (Male.IsChecked.Value == true) pol = "М";
+                    if (Female.IsChecked.Value == true) pol = "Ж";
+                    Rabotnik rab1 = new Rabotnik(Firstname.Text, Lastname.Text, age, pol, Dolznost.Text);
+                    Itog.Text = rab1.GetInfo();
+                }
+                catch
+                {
+                    MessageBox.Show("Введите пропущенные данные");
+                }
             }
-            catch
+            else
             {
-                MessageBox.Show("Введите пропущенные данные");
+                try
+                {
+                    Int32.TryParse(Age.Text, out int age);
+                    Int32.TryParse(Childrens.Text, out int childrens);
+                    string pol = "";
+                    if (Male.IsChecked.Value == true) pol = "М";
+                    if (Female.IsChecked.Value == true) pol = "Ж";
+                    RabotnikDet rab1 = new RabotnikDet(Firstname.Text, Lastname.Text, age, pol, Dolznost.Text,childrens);
+                    Itog.Text = rab1.GetInfo();
+                }
+                catch
+                {
+                    MessageBox.Show("Введите пропущенные данные");
+                }
             }
 }
     }

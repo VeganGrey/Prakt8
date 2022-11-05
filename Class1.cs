@@ -57,12 +57,7 @@ namespace Prakt8
 
         public object Clone()
         {
-            Rabotnik clone = new Rabotnik();
-            clone.FirstName = this.FirstName;
-            clone.Pol = this.Pol;
-            clone.LastName = this.LastName;
-            clone.Age = this.Age;
-            clone.Dolzhnost = this.Dolzhnost;
+            Rabotnik clone = new Rabotnik(this.FirstName,this.LastName,this.Age,this.Pol,this.Dolzhnost);
             return clone;
         }
     }
@@ -83,5 +78,17 @@ namespace Prakt8
             Childrens = childrens;
         }
 
+        public new string GetInfo()
+        {
+            string info = "";
+            info = $"Имя работника {FirstName}\n Фамилия работника {LastName}\n Возраст работника {Age}\n Пол:{Pol}\n Занимаемая должность: {Dolzhnost}\n Кол-во детей {Childrens}";
+            return info;
+        }
+
+        public new object Clone()
+        {
+            RabotnikDet clone = new RabotnikDet(this.FirstName,this.LastName,this.Age,this.Pol,this.Dolzhnost,this.Childrens);
+            return this;
+        }
     }
 }

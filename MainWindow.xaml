@@ -13,6 +13,7 @@
                 <MenuItem Header="Получить сводку о работнике 2"></MenuItem>
                 <MenuItem Header="Сравнить работников"></MenuItem>
             </MenuItem>
+            <MenuItem Header="Очистка"></MenuItem>
             <MenuItem Header="Справка"></MenuItem>
             <MenuItem Header="Выход"></MenuItem>
         </Menu>
@@ -22,7 +23,7 @@
         <TextBox x:Name="Age" HorizontalAlignment="Left" Margin="28,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="2" ToolTip="Возраст работника"/>
         <TextBox x:Name="Dolznost" HorizontalAlignment="Left" Margin="28,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Должность работника"/>
         <TextBox x:Name="Childrens" HorizontalAlignment="Left" Margin="28,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Кол-во детей у работника"/>
-        <TextBox x:Name="Itog" HorizontalAlignment="Left" Margin="250,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="180"/>
+        <TextBox x:Name="Itog" HorizontalAlignment="Left" Margin="250,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="180" IsReadOnly="True"/>
         <Label Content="Пол работника" HorizontalAlignment="Left" Margin="28,269,0,0" VerticalAlignment="Top"/>
         <GroupBox Header="Пол" Margin="10,258,615,60">
             <Grid>
