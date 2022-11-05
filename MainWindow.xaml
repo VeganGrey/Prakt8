@@ -13,7 +13,6 @@
                 <MenuItem Header="Получить сводку о работнике 2"></MenuItem>
                 <MenuItem Header="Сравнить работников"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Техподдержка" Click="Support"></MenuItem>
             <MenuItem Header="Справка"></MenuItem>
             <MenuItem Header="Выход"></MenuItem>
         </Menu>

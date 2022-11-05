@@ -26,12 +26,6 @@ namespace Prakt8
             InitializeComponent();
         }
 
-        private void Support(object sender, RoutedEventArgs e)
-        {
-            string target = "https://t.me/Doctorfleks";
-            System.Diagnostics.Process.Start(target);
-        }
-
         private void Отчёт(object sender, RoutedEventArgs e)
         {
             try
