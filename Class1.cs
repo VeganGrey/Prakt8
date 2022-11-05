@@ -80,7 +80,6 @@ namespace Prakt8
             //if (pol != "М" || pol != "Ж") throw new ArgumentException();
             if (pol == "М") Pol = "Мужской";
             if (pol == "Ж") Pol = "Женский";
-            if (Pol != "Мужской" && Pol != "Женский") throw new ArgumentException();
             if (age > 16) Age = age;
             else throw new ArgumentException();
             Dolzhnost = dolzhnost;
@@ -96,7 +95,13 @@ namespace Prakt8
 
         public new object Clone()
         {
-            RabotnikDet clone = new RabotnikDet(this.FirstName,this.LastName,this.Age,this.Pol,this.Dolzhnost,this.Childrens);
+            RabotnikDet clone = new RabotnikDet();
+            clone.FirstName = this.FirstName;
+            clone.LastName = this.LastName;
+            clone.Pol = this.Pol;
+            clone.Age = this.Age;
+            clone.Dolzhnost = this.Dolzhnost;
+            clone.Childrens = this.Childrens;
             return clone;
         }
     }

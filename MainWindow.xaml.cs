@@ -29,10 +29,8 @@ namespace Prakt8
 
         private void Отчёт(object sender, RoutedEventArgs e)
         {
-            int.TryParse(Porad.Text, out int indx);
-            //indx -= 1;
-            RabotnikDet rab1;
-            rab1 = (RabotnikDet)listBox.Items[indx];
+            int.TryParse(Clon.Text, out int indx);
+            RabotnikDet rab1 = (RabotnikDet)listBox.Items[indx];
             Itog.Text = rab1.GetInfo();
         }
 
@@ -46,13 +44,31 @@ namespace Prakt8
                 if (Male.IsChecked.Value == true) pol = "М";
                 if (Female.IsChecked.Value == true) pol = "Ж";
                 RabotnikDet rab = new RabotnikDet(Firstname.Text, Lastname.Text, age, pol, Dolznost.Text, childrens);
-                kol += 1;
-                listBox.Items.Add(rab+$" Работник{kol}");;
+                kol++;
+                listBox.Items.Add(rab);
             }
             catch
             {
                 MessageBox.Show("Введите пропущенные данные");
             }           
+        }
+
+        private void Clone(object sender, RoutedEventArgs e)
+        {
+            int.TryParse(Clon.Text, out int indx);
+            RabotnikDet rab1 = (RabotnikDet)listBox.Items[indx];
+            RabotnikDet rab = (RabotnikDet)rab1.Clone();
+            kol++;
+            listBox.Items.Add(rab);
+        }
+
+        private void Сравнить(object sender, RoutedEventArgs e)
+        {
+            int.TryParse(Srav1.Text, out int indx); int.TryParse(Srav2.Text, out int indx1);
+            RabotnikDet rab1 = (RabotnikDet)listBox.Items[indx];
+            RabotnikDet rab2 = (RabotnikDet)listBox.Items[indx1];
+            if (rab1.CompareTo(rab2) == 0) MessageBox.Show("Однофамильцы");
+            else MessageBox.Show("Не однофамильцы");          
         }
     }
 }
