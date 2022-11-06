@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Prakt8
 {
-    internal interface Ihuman
+    internal interface IHuman
     {
         string FirstName { get; set; }
         string LastName { get; set; }

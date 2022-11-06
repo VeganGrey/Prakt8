@@ -1,18 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Diagnostics;
 
 namespace Prakt8
 {
@@ -25,6 +12,7 @@ namespace Prakt8
         public MainWindow()
         {
             InitializeComponent();
+            Firstname.Focus();
         }
 
         private void Отчёт(object sender, RoutedEventArgs e)
@@ -41,16 +29,16 @@ namespace Prakt8
                 Int32.TryParse(Age.Text, out int age);
                 Int32.TryParse(Childrens.Text, out int childrens);
                 string pol = "";
-                if (Male.IsChecked.Value == true) pol = "М";
-                if (Female.IsChecked.Value == true) pol = "Ж";
-                RabotnikDet rab = new RabotnikDet(Firstname.Text, Lastname.Text, age, pol, Dolznost.Text, childrens);
+                if ((bool)Male.IsChecked) pol = "М";
+                if ((bool)Female.IsChecked) pol = "Ж";
+                listBox.Items.Add(new RabotnikDet(Firstname.Text, Lastname.Text, age, pol, Dolznost.Text, childrens));
                 kol++;
-                listBox.Items.Add(rab);
+
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Введите пропущенные данные");
-            }           
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Clone(object sender, RoutedEventArgs e)
@@ -64,11 +52,43 @@ namespace Prakt8
 
         private void Сравнить(object sender, RoutedEventArgs e)
         {
-            int.TryParse(Srav1.Text, out int indx); int.TryParse(Srav2.Text, out int indx1);
+            int.TryParse(Srav1.Text, out int indx);
+            int.TryParse(Srav2.Text, out int indx1);
+
             RabotnikDet rab1 = (RabotnikDet)listBox.Items[indx];
             RabotnikDet rab2 = (RabotnikDet)listBox.Items[indx1];
-            if (rab1.CompareTo(rab2) == 0) MessageBox.Show("Однофамильцы");
-            else MessageBox.Show("Не однофамильцы");          
+
+            if (rab1.CompareTo(rab2) == 0)
+            {
+                MessageBox.Show("Однофамильцы");
+            }
+            else
+            {
+                MessageBox.Show("Не однофамильцы");
+            }
+        }
+
+        private void Очистка(object sender, RoutedEventArgs e)
+        {
+            listBox.Items.Clear();
+            Firstname.Clear();
+            Lastname.Clear();
+            Age.Clear();
+            Childrens.Clear();
+            Male.IsChecked = false;
+            Female.IsChecked = false;
+            Dolznost.Clear();
+            Firstname.Focus();
+        }
+
+        private void Справка(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("");
+        }
+
+        private void Выход(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

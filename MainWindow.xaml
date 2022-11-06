@@ -9,13 +9,13 @@
     <Grid>
         <Menu VerticalAlignment="Top">
             <MenuItem Header="Сведения">
-                <MenuItem Header="Получить сводку о работнике" Click="Отчёт"></MenuItem>
-                <MenuItem Header="Клонировать работника" Click="Clone"></MenuItem>
-                <MenuItem Header="Сравнить работников" Click="Сравнить"></MenuItem>
+                <MenuItem Header="Получить сводку о работнике" Click="Отчёт"/>
+                <MenuItem Header="Клонировать работника" Click="Clone"/>
+                <MenuItem Header="Сравнить работников" Click="Сравнить"/>
             </MenuItem>
-            <MenuItem Header="Очистка"></MenuItem>
-            <MenuItem Header="Справка"></MenuItem>
-            <MenuItem Header="Выход"></MenuItem>
+            <MenuItem Header="Очистка" Click="Очистка"/>
+            <MenuItem Header="Справка" Click="Справка"/>
+            <MenuItem Header="Выход" Click="Выход"/>
         </Menu>
         <Label Content="Работник " HorizontalAlignment="Left" Margin="28,34,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Firstname" HorizontalAlignment="Left" Margin="28,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Имя работника"/>
@@ -23,7 +23,7 @@
         <TextBox x:Name="Age" HorizontalAlignment="Left" Margin="28,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="2" ToolTip="Возраст работника"/>
         <TextBox x:Name="Dolznost" HorizontalAlignment="Left" Margin="28,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Должность работника"/>
         <TextBox x:Name="Childrens" HorizontalAlignment="Left" Margin="28,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Кол-во детей у работника"/>
-        <TextBox x:Name="Itog" HorizontalAlignment="Left" Margin="206,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Height="144" IsReadOnly="True"/>
+        <TextBox x:Name="Itog" HorizontalAlignment="Left" Margin="206,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" Height="129" IsReadOnly="True"/>
         <Label Content="Пол работника" HorizontalAlignment="Left" Margin="28,269,0,0" VerticalAlignment="Top"/>
         <GroupBox Header="Пол" Margin="10,258,0,60" HorizontalAlignment="Left" Width="167">
             <Grid>
@@ -31,12 +31,22 @@
                 <RadioButton x:Name="Female" GroupName="group1" Content="Ж" HorizontalAlignment="Left" Margin="19,53,0,0" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
-        <ListBox x:Name="listBox" Margin="206,99,0,174" HorizontalAlignment="Left" Width="237"/>
         <Button Content="записать" HorizontalAlignment="Left" Margin="62,389,0,0" VerticalAlignment="Top" Click="Записать"/>
         <TextBox x:Name="Clon" HorizontalAlignment="Left" Margin="206,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" ToolTip="Номер работника" Height="22"/>
         <Label Content="Номер работника" HorizontalAlignment="Left" Margin="206,34,0,0" VerticalAlignment="Top"/>
         <Label Content="Номер для срав" HorizontalAlignment="Left" Margin="338,29,0,0" VerticalAlignment="Top" Width="105"/>
         <TextBox x:Name="Srav1" HorizontalAlignment="Left" Margin="338,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" ToolTip="Номер работника" Height="22"/>
         <TextBox x:Name="Srav2" HorizontalAlignment="Left" Margin="416,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" ToolTip="Номер работника" Height="22"/>
+
+        <DataGrid ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Background="Transparent" x:Name="listBox" HorizontalAlignment="Left" Height="100" Margin="206,117,0,0" VerticalAlignment="Top" Width="254">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Path=FirstName}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}"/>
+                <DataGridTextColumn Header="Возраст" Binding="{Binding Path=Age}"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding Path=Pol}"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding Path=Dolzhnost}"/>
+                <DataGridTextColumn Header="Дети" Binding="{Binding Path=Childrens}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
