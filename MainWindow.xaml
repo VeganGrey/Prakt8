@@ -13,9 +13,10 @@
                 <MenuItem Header="Клонировать работника" Click="Clone"></MenuItem>
                 <MenuItem Header="Сравнить работников" Click="Сравнить"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Очистка"></MenuItem>
-            <MenuItem Header="Справка"></MenuItem>
-            <MenuItem Header="Выход"></MenuItem>
+			<MenuItem Header="ТехПоддержка" Click="Support"></MenuItem>
+            <MenuItem Header="Очистка" Click="Clear"></MenuItem>
+            <MenuItem Header="Справка" Click ="Cpravka"></MenuItem>
+            <MenuItem Header="Выход" Click ="Quit"></MenuItem>
         </Menu>
         <Label Content="Работник " HorizontalAlignment="Left" Margin="28,34,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Firstname" HorizontalAlignment="Left" Margin="28,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Имя работника"/>
