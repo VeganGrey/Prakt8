@@ -75,7 +75,7 @@ namespace Prakt8
             }
             catch
             {
-                MessageBox.Show("введите доступного работника");
+                MessageBox.Show("Bведите доступного работника");
             }
         }
 
