@@ -83,7 +83,7 @@ namespace Prakt8
             if (age > 16) Age = age;
             else throw new ArgumentException();
             Dolzhnost = dolzhnost;
-            if(Childrens >= 0) Childrens = childrensl;
+            if(Childrens >= 0) Childrens = childrens;
             else throw new ArgumentException();
         }
 
