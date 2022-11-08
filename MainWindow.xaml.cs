@@ -22,6 +22,7 @@ namespace Prakt8
     public partial class MainWindow : Window
     {
         List<RabotnikDet> listochek = new List<RabotnikDet>();
+        int kol = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -53,7 +54,8 @@ namespace Prakt8
                 if (Female.IsChecked.Value == true) pol = "Ж";
                 RabotnikDet rab = new RabotnikDet(Firstname.Text, Lastname.Text, age, pol, Dolznost.Text, childrens);
                 listochek.Add(rab);
-                listBox.Items.Add(rab.LastName);
+                kol++;
+                listBox.Items.Add($"{kol}."+rab.LastName);
                 Itog.Text = "";
             }
             catch
@@ -71,7 +73,8 @@ namespace Prakt8
             RabotnikDet rab1 = listochek[indx];
             RabotnikDet rab = (RabotnikDet)rab1.Clone();
             listochek.Add(rab);
-            listBox.Items.Add(rab.LastName);
+            kol++;
+            listBox.Items.Add($"{kol}."+rab.LastName);
             }
             catch
             {
